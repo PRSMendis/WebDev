@@ -1,0 +1,48 @@
+/* https://colorhunt.co/palette/42191 */
+/* #e3fdfd
+#cbf1f5
+#a6e3e9
+#71c9ce */
+
+/* body {
+   background-color: blue ;
+} */
+
+
+/* div {
+
+} */
+
+.othercont {
+height: 200px;
+width: 200px
+}
+
+.middlecont {
+  background-color: red;
+}
+
+.bottomcont {
+  background-color: blue;
+  /* height: 200px;
+  width: 200px */
+
+}
+
+.topcountainer {
+background-color: #e3fdfd ;
+
+
+}
+
+body{
+/* margin-top: 0px;
+margin-left: 0px;
+margin-bottom: 0px;
+margin-right: 0px; */
+margin: 0 ;
+}
+
+h1 {
+  margin-top: 0 ;
+  }
