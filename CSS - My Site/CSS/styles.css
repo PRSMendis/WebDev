@@ -12,6 +12,12 @@
 /* div {
 
 } */
+/* https://www.w3schools.com/cssref/css_websafe_fonts.asp - breakdwon of fonts -
+https://www.cssfontstack.com/ - breakdown of font stack probably based on OS  */
+/* https://fonts.google.com/?selection.family=Merriweather|Montserrat|Sacramento&query=mont */
+
+
+
 
 body{
 /* margin-top: 0px;
@@ -20,10 +26,15 @@ margin-bottom: 0px;
 margin-right: 0px; */
 margin: 0 ;
 text-align: center;
+/* Allows for backups - if don't have left most, go to the i+1  */
+/* font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ; */
+font-family: 'Merriweather', serif;
+
 }
 
 h1 {
   margin-top: 0 ;
+  font-family: 'Sacramento', cursive;
   }
 
 
@@ -32,6 +43,15 @@ background-color: #e3fdfd ;
 position: relative;
 padding-top: 150px
 }
+
+h2{
+  font-family: 'Montserrat', sans-serif;
+}
+
+h3{
+  font-family: 'Montserrat', sans-serif;
+}
+
 
 .othercont {
 height: 200px;
