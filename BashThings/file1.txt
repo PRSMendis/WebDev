@@ -1,1 +1,1 @@
-I am file 1
+console.log("I am file 1")
