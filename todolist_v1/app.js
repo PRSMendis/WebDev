@@ -2,6 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const date = require(__dirname +"/date.js");
 
 const app = express();
 
@@ -18,29 +19,14 @@ app.get("/", function(req, res){
   // res.send("Hello");
 
   var today = new Date() ; 
-  // var currentDay = today.getDay();
-  
-  var options = {
-    weekday: "long",
-    day: "numeric",
-    month: "long"
-  }
-  
-  // var day = "" ;
-  var day = today.toLocaleDateString("en-US" , options);
-  
-  // if (currentDay === 6 || currentDay === 0) {
-  //   day = "Weekend" ;
-  // } else {
-  //   day = "Weekday" ; 
-  //   // res.sendfile(__dirname + "/weekday.html
-  // }
+
+  let day =date.getDate();
 
   res.render("list" , {listTitle: day, items: items}) ;
 
 
 });
-
+``
 app.post("/", function(req,res){
   let item = req.body.newItem
 
@@ -63,6 +49,10 @@ app.post("/work", function(req, res){
   let item = req.body.newItem;
   workItems.push(item);
   res.redirect("/work")
+})
+
+app.get("/about", function(req,res){
+  res.render("about.ejs")
 })
 
 app.listen(3000, function(){
