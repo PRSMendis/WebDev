@@ -12,22 +12,26 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <h1><%= kindOfDay %> </h1>
-        <ul>
-            <!-- <li>Buy Food</li>
-            <li>Cook Food</li>
-            <li>Eat Food</li> -->
-            <!-- <li><%= items %></li> -->
+        <div class = "box" id="heading">
+            <h1><%= listTitle %> </h1>
+        </div>
 
+        <div class="box">
             <% items.forEach(item => { %>
-                <li><%= item %></li>
+                
+            <div class="item">
+                <input type="checkbox">
+                <p><%= item %></p>
+            </div>
             <% }) %>
-        </ul>
-        <form action="/" method="POST">
-            <!-- <input type="text"> -->
-            <input id="bPoint" type = "text" name = "newItem">
-            <button type="submit" name="button">Go</button>
-        </form>
+            <form class="item" action="/" method="POST">
+                <!-- <input type="text"> -->
+                <input id="bPoint" type = "text" name = "newItem" placeholder="New Item" autocomplete="off">
+                <button type="submit" name="list" value=<%= listTitle %> > >+</button>
+            </form>
+
+        </div>
+        
         
         <script src="" async defer></script>
     </body>
