@@ -52,21 +52,38 @@ app.post("/compose", function(req,res) {
 
 app.get('/posts/:postId', function (req, res) {
   // res.send(req.params)
-  console.log(req.params.postId)
-  // postId = req.params.postId;
-  // using lodash to allow for lowercase, -- , etc
-  postId = _.lowerCase(req.params.postId);
-  console.log(postId)
-
-  if (postTitles.includes(postId)) {
-    console.log("Match found")
-  } else {
-    console.log("Match not found")
-
-  }
-
-
+    const rqTitle = _.lowerCase(req.params.postId);
+    // console.log("yeet")
+    console.log("posts: " + posts)
+    posts.forEach(function(post){
+      // console.log("post " + post)
+      const storedTitle = _.lowerCase(post.postTitle);
+      // console.log("st" + storedTitle)
+      // console.log("rq" + rqTitle)
+      if (storedTitle === rqTitle) {
+        
+        res.render("post.ejs", {
+          postTitle: post.postTitle,
+           postBody: post.postBody
+        })
+      }
+    })
 })
+
+// app.get('/posts/:postId', function (req, res) {
+//   // res.send(req.params)
+//   console.log(req.params.postId)
+//   // postId = req.params.postId;
+//   // using lodash to allow for lowercase, -- , etc
+//   postId = _.lowerCase(req.params.postId);
+//   console.log(postId)
+
+//   if (postTitles.includes(postId)) {
+//     console.log("Match found")
+//   } else {
+//     console.log("Match not found")
+
+//   }
 
 
 
