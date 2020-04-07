@@ -48,30 +48,36 @@ const groceries = new Item({
 
 const defaultItems = [item1, item2, item3];
 
-Item.insertMany(defaultItems, function (err) {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log("Succesfully logged the items to DB")
-  }
-})
-
 
 app.get("/", function (req, res) {
   Item.find(function (err, results) {
-    // console.log(results.name)
-    results.forEach(entry => {
-      items.push(entry.name)
-    })
-    // const day = date.getDate();
 
-    results.forEach(entry => {
-      items.push(entry.name)
-    })
-    res.render("list", {
-      listTitle: "Today",
-      newListItems: items
-    });
+    if (results.length ===0 ) {
+      // console.log("Empty")
+      Item.insertMany(defaultItems, function (err) {
+        if (err) {
+          console.log(err)
+        } else {
+          console.log("Succesfully logged the items to DB")
+        }
+      })
+      // results.forEach(entry => {
+      //   items.push(entry.name)
+      // })
+      res.redirect("/")
+
+    } else {
+      // console.log(results)
+      // console.log(items)
+      res.render("list", {
+        listTitle: "Today",
+        // newListItems: items
+        newListItems: results
+      });
+    }
+    // console.log(results.name)
+    
+
   });
 });
 
@@ -97,9 +103,42 @@ app.post("/", function (req, res) {
   });
 
   newItem.save();
+  res.redirect("/")
+});
+
+app.post("/delete", function(req,res){
+  const checkedItemId = req.body.checkbox;
+  console.log(req.body.checkbox)
+  console.log("HEY ID IS " + checkedItemId)
+  console.log(Item)
+
+// Item.findByIdAndDelete(checkedItemId, function(err){
+//   if (err) {
+//   console.log(err)
+// } else{
+//   console.log("Delted?")
+// }
+// });
+
+  // Item.findByIdAndRemove(checkedItemId, function (err) {
+  //   if (err) {
+  //     console.log(err)
+  //   } else {
+  //     console.log("Succesfully removed element with ID: " + checkedItemId)
+  //   }
+  // });
+  //  Item.update( 
+  //   {_id: checkedItemId}, 
+  //   { $pull: {posts: req.body.post_id } } 
+  // )
+  // .then( err => {
+  //   console.log("deletion error")
+  // });
 
 
 });
+
+
 
 app.get("/work", function (req, res) {
   res.render("list", {
