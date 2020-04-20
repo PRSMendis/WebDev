@@ -1,4 +1,4 @@
-{
+[{
     "_id": "5e9cf7dab5fa0c251c9c4f12",
     "title": "REST",
     "content": "REST is short for REpresentational State Transfer, It is an architectural stlye for desinging APIs"
@@ -29,4 +29,4 @@
     "title": "Jack Bauer",
     "content": "Jack Bauer once stepped into quicksand. The quicksand couldn't escape and nearly drowned.",
     "__v": 0
-}
+}]
